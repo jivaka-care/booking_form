@@ -1,0 +1,208 @@
+<html>
+<head>
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="./assets/libs/jquery-3.4.1.min.js"></script>
+  
+  <!-- Bootstrap -->
+  <link rel="stylesheet" type="text/css" href="./assets/libs/bootstrap-4.4.1/css/bootstrap.min.css" >
+  <script type="text/javascript" src="./assets/libs/bootstrap-4.4.1/js/bootstrap.min.js" ></script>
+  <link rel="stylesheet" type="text/css" href="./assets/libs/bootstrap-3.3.7/css/bootstrap.min.css" >
+  <script type="text/javascript" src="./assets/libs/bootstrap-3.3.7/js/bootstrap.min.js" ></script>
+
+  <!-- Datepicker -->
+  <link  rel="stylesheet" type="text/css" href="./assets/libs/bootstrap-datepicker-1.9.0/css/bootstrap-datepicker.min.css">
+  <script type="text/javascript" src="./assets/libs/bootstrap-datepicker-1.9.0/js/bootstrap-datepicker.min.js"></script>
+  
+  <!-- Timepicker -->
+  <link  rel="stylesheet" type="text/css" href="./assets/libs/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.min.css">
+  <script type="text/javascript" src="./assets/libs/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="./form.component.css">
+  <script type="text/javascript" src="./form.component.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<form id="booking-form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeIIGduu9rB5XEnpzji5zLYHFlqHBt5KmuSsm6mBgWVBWpJAg/formResponse" method="post">
+  <div class="section flex-container">
+    <div class="form-header col-md-9 col-12">
+      <div class="logo col-md-6 col-12"><img class="col-12" src="./assets/images/jivaka-beauty.png"></div>
+      <div class="page-title col-md-6 col-12">Booking Form</div>
+    </div>
+  </div>
+  
+  <div class="section flex-container">
+	<div class="form-body col-md-9 col-12">
+	  <div class="form-content-header flex-container">
+	    <div class="col-md-10 col-12">
+		<small class="text-danger">[ Required ]</small>
+		</div>
+	  </div>
+      <div class="form-content flex-container">
+		  <div class="col-md-10 col-12">
+			  <div class="form-group flex-container">
+				<label for="user-first-name" class="col-md-4 col-12">Name<small class="text-danger">*</small></label>
+				<div class="input-container space-container col-md-8 col-12">
+					<div class="space-col col-md-6 col-12">
+					  <input type="text" class="form-control col-12" id="user-first-name" name="entry.1148800336" placeholder="First Name" >
+					  <small id="user-first-name-error" class="text-danger"></small>
+					</div>
+					
+					<div class="col-md-6 col-12">
+					  <input type="text" class="form-control col-12" id="user-last-name" name="entry.920835463" placeholder="Last Name" >
+					  <small id="user-last-name-error" class="text-danger"></small>
+					</div>
+				</div>
+			  </div>
+			  
+			  <div class="form-group flex-container">
+				<label for="user-birthday" class="col-md-4 col-12">Birthday<small class="text-danger">*</small></label>
+				  <div class="input-container datepicker-container col-md-8 col-12">
+					<input placeholder="YYYY.MM.DD" type="text" id="user-birthday" class="form-control datepicker input-field" data-date-format="yyyy.mm.dd" readonly >
+					<i class="glyphicon glyphicon-chevron-down icon"></i>
+					<small id="user-birthday-error" class="text-danger"></small>
+
+					<input type="hidden" id="user-birthday-year-input" name="entry.1766421160_year">
+					<input type="hidden" id="user-birthday-month-input" name="entry.1766421160_month">
+					<input type="hidden" id="user-birthday-day-input" name="entry.1766421160_day">
+				  </div>
+			  </div>
+			  
+			  <div class="form-group flex-container">
+				<label for="user-nationality" class="col-md-4 col-12">Nationality<small class="text-danger">*</small></label>
+				  <div class="input-container col-md-8 col-12">
+					<input type="text" class="form-control" id="user-nationality" name="entry.679265904" placeholder="Your Answer" >
+					<small id="user-nationality-error" class="text-danger"></small>
+				  </div>
+			  </div>
+
+			  <div class="form-group flex-container">
+				<label for="user-language" class="col-md-4 col-12">Language<small class="text-danger">*</small></label>
+				  <div class="input-container col-md-8 col-12">
+					<div class="flex-container space-container btn-group col-12" id="user-language">
+					  <img src="./assets/images/english.png" class="btn btn-user-language btn-img col-3" name="English" />
+					  <img src="./assets/images/japanese.png" class="btn btn-user-language btn-img col-3" name="Japanese" />
+					  <img src="./assets/images/chinese.png" class="btn btn-user-language btn-img col-3" name="Chinese" />
+					</div>
+					<small id="user-language-error" class="text-danger"></small>
+					
+					<input type="hidden" id="user-language-input" name="entry.1203517428">
+				  </div>
+			  </div>
+
+			  <div class="form-group flex-container">
+				<label for="user-email-address" class="col-md-4 col-12">Email Address<small class="text-danger">*</small></label>
+				  <div class="input-container col-md-8 col-12">
+					<input type="text" class="form-control" id="user-email-address" name="entry.1895140415" placeholder="Your Answer" >
+					<small id="user-email-address-error" class="text-danger"></small>
+				  </div>
+			  </div>
+			  
+			  <div class="form-group flex-container">
+				<label for="user-phone-number" class="col-md-4 col-12">Phone Number<small class="text-danger">*</small></label>
+				  <div class="input-container col-md-8 col-12">
+					<input type="text" class="form-control" id="user-phone-number" name="entry.992934898" placeholder="Your Answer" >
+					<small id="user-phone-number-error" class="text-danger"></small>
+				  </div>
+			  </div>
+			  
+			  <div class="form-group flex-container">
+				<label for="user-messenger-type" class="col-md-4 col-12">Messenger Type</label>
+				  <div class="input-container col-md-8 col-12">
+					<div class="flex-container space-container btn-group col-12" id="messenger-type">
+					  <img src="./assets/images/WhatsApp.png" class="btn btn-messenger-type btn-img col-2" name="WhatsApp" />
+					  <img src="./assets/images/WeChat.png" class="btn btn-messenger-type btn-img col-2" name="WeChat" />
+					  <img src="./assets/images/Line.png" class="btn btn-messenger-type btn-img col-2" name="Line" />
+					  <img src="./assets/images/Kakao.png" class="btn btn-messenger-type btn-img col-2" name="Kakao" />
+					</div>
+					<small id="user-messenger-type-error" class="text-danger"></small>
+					
+					<input type="hidden" id="user-messenger-type-input" name="entry.434842283">
+				  </div>
+			  </div>
+			  
+			  <div class="form-group flex-container">
+				<label for="user-messenger-id" class="col-md-4 col-12">Messenger ID</label>
+				  <div class="input-container col-md-8 col-12">
+					<input type="text" class="form-control" id="user-messenger-id" name="entry.564927282" placeholder="Your Answer" >
+					<small id="user-messenger-id-error" class="text-danger"></small>
+				  </div>
+			  </div>
+			  
+			  <div class="form-group flex-container radio-container">
+				<label for="clinic" class="col-md-4 col-12">Clinic<small class="text-danger">*</small></label>
+				<div class="input-container col-md-8 col-12">
+				  <div class=" radio col-12" id="clinic">
+				    <div class="col-lg-6 col-md-12 col-12">
+					  <label><input type="radio" class="radio-clinic" name="entry.896669018" value="Bioface"><div>Bioface</div></label>
+					  <label><input type="radio" class="radio-clinic" name="entry.896669018" value="Ppeum Myeongdong"><div>Ppeum Myeongdong</div></label>
+					  <label><input type="radio" class="radio-clinic" name="entry.896669018" value="Ppeum Sinnonhyeon"><div>Ppeum Sinnonhyeon</div></label>
+					  <label><input type="radio" class="radio-clinic" name="entry.896669018" value="Ppeum Sinsa"><div>Ppeum Sinsa</div></label>
+				    </div>
+				    <div class="col-lg-6 col-md-12 col-12">
+				  	  <label><input type="radio" class="radio-clinic" name="entry.896669018" value="Ppeum Hongdae"><div>Ppeum Hongdae</div></label>
+					  <label><input type="radio" class="radio-clinic" name="entry.896669018" value="Junho Lee Dentistry"><div>Junho Lee Dentistry</div></label>
+					  <label><input type="radio" class="radio-clinic" name="entry.896669018" value="Chang Clinic"><div>Chang Clinic</div></label>
+			  	    </div>
+				  </div>
+				  <small id="clinic-error" class="text-danger"></small>
+				</div>
+			  </div>
+			  
+			  <div class="form-group flex-container">
+				<label for="treatment" class="col-md-4 col-12">Treatment<small class="text-danger">*</small></label>
+				  <div class="input-container col-md-8 col-12">
+					<input type="text" class="form-control" id="treatment" name="entry.1855726954" placeholder="Your Answer" >
+					<small id="treatment-error" class="text-danger"></small>
+				  </div>
+			  </div>
+			  
+			  <div class="form-group flex-container">
+				<label for="time" class="col-md-4 col-12">Time<small class="text-danger">*</small></label>
+				  <div class="input-container space-container col-md-8 col-12">
+					<div class="input-container space-col datepicker-container col-md-6 col-12">
+					  <div id="clinic-time-date" class="col-12">
+					    <input placeholder="YYYY.MM.DD" type="text" id="time-date" class="form-control datepicker input-field" data-date-format="yyyy.mm.dd" readonly >
+					    <i class="glyphicon glyphicon-chevron-down icon"></i>
+						<small id="time-date-error" class="text-danger"></small>
+					  </div>
+					  
+					  <input type="hidden" id="time-year-input" name="entry.903552466_year">
+					  <input type="hidden" id="time-month-input" name="entry.903552466_month">
+					  <input type="hidden" id="time-day-input" name="entry.903552466_day">
+				    </div>
+					<div class="input-container flex-container bootstrap-timepicker timepicker-container col-md-6 col-12" id="time-hour-container">
+					  <div id="clinic-time-hour" class="col-12">
+						<input placeholder="--:-- PM" type="text" id="time-hour" class="form-control timepicker input-field" readonly >
+						<i class="glyphicon glyphicon-chevron-down icon"></i>
+						<small id="time-hour-error" class="text-danger"></small>
+					  </div>
+					  
+					  <input type="hidden" id="time-hour-input" name="entry.903552466_hour">
+					  <input type="hidden" id="time-minute-input" name="entry.903552466_minute">
+					  <input type="hidden" id="manager-input" name="entry.1368537488" value="User">
+				    </div>
+				  </div>
+			  </div>
+			  
+			  <div class="form-group flex-container">
+				<label for="notes" class="col-md-4 col-12">Notes</label>
+				  <div class="input-container col-md-8 col-12">
+					<textarea rows="4" cols="50" class="form-control" id="notes" name="entry.418492288" placeholder="Your Answer"></textarea>
+					<small id="notes-error" class="text-danger"></small>
+				  </div>
+			  </div>
+			  
+		  </div>
+	  </div>
+    </div>
+  </div>
+
+  <div class="section flex-container">
+	<button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+</body>
+<html>
