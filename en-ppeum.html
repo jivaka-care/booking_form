@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.js"></script> 
+  
+  <!-- jQuery -->
+  <script type="text/javascript" src="https://eng.ppeum.com/wp-content/jivaka/202001141700/assets/libs/jquery-3.4.1.min.js"></script>
+
+  <!-- Google Translate -->
+  <!-- <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
+  
+  <!-- Bootstrap -->
+  <link rel="stylesheet" type="text/css" href="https://eng.ppeum.com/wp-content/jivaka/202001141700/assets/libs/bootstrap-4.4.1/css/bootstrap.min.css" >
+  <script type="text/javascript" src="https://eng.ppeum.com/wp-content/jivaka/202001141700/assets/libs/bootstrap-4.4.1/js/bootstrap.min.js" ></script>
+  <link rel="stylesheet" type="text/css" href="https://eng.ppeum.com/wp-content/jivaka/202001141700/assets/libs/bootstrap-3.3.7/css/bootstrap.min.css" >
+  <script type="text/javascript" src="https://eng.ppeum.com/wp-content/jivaka/202001141700/assets/libs/bootstrap-3.3.7/js/bootstrap.min.js" ></script>
+
+  <!-- Datepicker -->
+  <link  rel="stylesheet" type="text/css" href="https://eng.ppeum.com/wp-content/jivaka/202001141700/assets/libs/bootstrap-datepicker-1.9.0/css/bootstrap-datepicker.min.css">
+  <script type="text/javascript" src="https://eng.ppeum.com/wp-content/jivaka/202001141700/assets/libs/bootstrap-datepicker-1.9.0/js/bootstrap-datepicker.min.js"></script>
+  
+  <!-- Timepicker -->
+  <link  rel="stylesheet" type="text/css" href="https://eng.ppeum.com/wp-content/jivaka/202001141700/assets/libs/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.min.css">
+  <script type="text/javascript" src="https://eng.ppeum.com/wp-content/jivaka/202001141700/assets/libs/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.min.js"></script>
+
+  <!-- Intl Tel -->
+  <link rel="stylesheet" href="https://eng.ppeum.com/wp-content/jivaka/202001141700/assets/libs/intl-tel-input-16.0.0/build/css/intlTelInput.css">
+
+  <link rel="stylesheet" type="text/css" href="https://eng.ppeum.com/wp-content/jivaka/202001141700/assets/form.component.css">
+  <script type="text/javascript" src="./assets/en-ppeum-form.component.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<form id="booking-form" action="http://ec2-54-180-103-49.ap-northeast-2.compute.amazonaws.com:3000/book/create" method="post">
+  <div class="section flex-container">
+	<div class="form-body col-12">
+	  <div class="form-content-header flex-container">
+	    <div class="col-12">
+			<small class="text-danger">[ Required ]</small>
+		</div>
+	  </div>
+      <div class="form-content flex-container">
+		  <div class="col-12">
+			  <div class="form-group flex-container">
+				<label for="user-first-name" class="col-md-4 col-12">Name<small class="text-danger">*</small></label>
+				<div class="input-container space-container col-md-8 col-12">
+					<div class="col-12">
+						<small class="text-danger">Please provide your name of the passport</small>
+					</div>
+					<div class="space-col col-md-6 col-12">
+					  <div class="col-md-11 col-12">
+					    <input type="text" class="form-control col-12" id="user-first-name" name="entry.1148800336" placeholder="First Name" >
+					    <small id="user-first-name-error" class="text-danger"></small>
+					  </div>
+					</div>
+					
+					<div id="last-name-container" class="col-md-6 col-12 flex-container">
+					  <div class="col-md-11 col-12">
+					    <input type="text" class="form-control col-12" id="user-last-name" name="entry.920835463" placeholder="Last Name" >
+					    <small id="user-last-name-error" class="text-danger"></small>
+					  </div>
+					</div>
+				</div>
+			  </div>
+			  
+			  <div class="form-group flex-container">
+				<label for="user-birthday" class="col-md-4 col-12">Birthday<small class="text-danger">*</small></label>
+				  <div class="input-container datepicker-container col-md-8 col-12">
+					<input placeholder="YYYY.MM.DD" type="text" id="user-birthday" class="form-control datepicker input-field" data-date-format="yyyy.mm.dd" readonly >
+					<i class="glyphicon glyphicon-chevron-down icon"></i>
+					<small id="user-birthday-error" class="text-danger"></small>
+
+					<input type="hidden" id="user-birthday-year-input" name="entry.1766421160_year">
+					<input type="hidden" id="user-birthday-month-input" name="entry.1766421160_month">
+					<input type="hidden" id="user-birthday-day-input" name="entry.1766421160_day">
+				  </div>
+			  </div>
+			  
+			  <div class="form-group flex-container">
+				<label for="user-nationality" class="col-md-4 col-12">Nationality<small class="text-danger">*</small></label>
+				  <div class="input-container col-md-8 col-12">
+					<input type="text" class="form-control" id="user-nationality" name="entry.679265904" placeholder="Your Answer" >
+					<small id="user-nationality-error" class="text-danger"></small>
+				  </div>
+			  </div>
+			  
+			  <input type="hidden" id="user-language-input" name="entry.1203517428" value="English">
+
+			  <div class="form-group flex-container">
+				<label for="user-email-address" class="col-md-4 col-12">Email Address<small class="text-danger">*</small></label>
+				  <div class="input-container col-md-8 col-12">
+					<input type="text" class="form-control" id="user-email-address" name="entry.1895140415" placeholder="Your Answer" >
+					<small id="user-email-address-error" class="text-danger"></small>
+				  </div>
+			  </div>
+			  
+			  <div class="form-group flex-container">
+				<label for="user-phone-number" class="col-md-4 col-12">Phone Number<small class="text-danger">*</small></label>
+				  <div class="input-container col-md-8 col-12">
+					<input type="tel" class="form-control col-12" id="user-phone-number">
+					<small id="user-phone-number-error" class="text-danger"></small>
+				  </div>
+			  </div>
+			  
+			  <div class="form-group flex-container">
+				<label for="user-messenger-type" class="col-md-4 col-12">Messenger Type</label>
+				  <div class="input-container col-md-8 col-12">
+					<div class="flex-container space-container btn-group col-12" id="messenger-type">
+					  <img src="https://eng.ppeum.com/wp-content/jivaka/202001141700/assets/images/WhatsApp.png" class="btn btn-messenger-type btn-img col-2" name="WhatsApp" />
+					  <img src="https://eng.ppeum.com/wp-content/jivaka/202001141700/assets/images/WeChat.png" class="btn btn-messenger-type btn-img col-2" name="WeChat" />
+					  <img src="https://eng.ppeum.com/wp-content/jivaka/202001141700/assets/images/Line.png" class="btn btn-messenger-type btn-img col-2" name="Line" />
+					  <img src="https://eng.ppeum.com/wp-content/jivaka/202001141700/assets/images/Kakao.png" class="btn btn-messenger-type btn-img col-2" name="Kakao" />
+					</div>
+					<small id="user-messenger-type-error" class="text-danger"></small>
+					
+					<input type="hidden" id="user-messenger-type-input" name="entry.434842283">
+				  </div>
+			  </div>
+			  
+			  <div class="form-group flex-container">
+				<label for="user-messenger-id" class="col-md-4 col-12">Messenger ID</label>
+				  <div class="input-container col-md-8 col-12">
+					<input type="text" class="form-control" id="user-messenger-id" name="entry.564927282" placeholder="Your Answer" >
+					<small id="user-messenger-id-error" class="text-danger"></small>
+				  </div>
+			  </div>
+			  
+			  <div class="form-group flex-container radio-container">
+				<label for="clinic" class="col-md-4 col-12">Clinic<small class="text-danger">*</small></label>
+				<div class="input-container col-md-8 col-12">
+				  <div class=" radio col-12 notranslate" id="clinic">
+				    <div class="col-lg-6 col-md-12 col-12">
+						<label><input type="radio" class="radio-clinic" name="entry.896669018" value="Ppeum Myeongdong"><div>Ppeum Myeongdong</div></label>
+					</div>
+				    <div class="col-lg-6 col-md-12 col-12">
+			  	    </div>
+				  </div>
+				  <small id="clinic-error" class="text-danger"></small>
+				</div>
+			  </div>
+			  
+			  <div class="form-group flex-container hidden" id="clinic-info-container">
+			    <label class="col-md-4 col-12"></label>
+				<div class="col-md-8 col-12 info-container">
+				  <div class="clinic-info flex-container">
+				    <label class="col-12">Address: </label>
+				    <p class="col-12 notranslate" id="clinic-info__address"></p>
+				  </div>
+				  <div class="clinic-info flex-container">
+				  <label class="col-12">Available Booking Hours: </label>
+				    <p class="col-12 flex-container" id="clinic-info__business-hours"></p>
+				  </div>
+			    </div>
+			  </div>
+			  
+			  <div class="form-group flex-container radio-container">
+				<label for="treatment" class="col-md-4 col-12">Treatment<small class="text-danger">*</small></label>
+				<div class="input-container col-md-8 col-12">
+				  <div class=" radio col-12 notranslate" id="treatment">
+				    <div class="col-lg-6 col-md-12 col-12">
+						<label><input type="radio" class="radio-treatment" name="entry.1855726954" value=0><div>Botox</div></label>
+						<label><input type="radio" class="radio-treatment" name="entry.1855726954" value=1><div>Filer</div></label>
+						<label><input type="radio" class="radio-treatment" name="entry.1855726954" value=2><div>Lifting</div></label>
+						<label><input type="radio" class="radio-treatment" name="entry.1855726954" value=3><div>Pigmentation/Mole</div></label>
+						<label><input type="radio" class="radio-treatment" name="entry.1855726954" value=4><div>Contouring</div></label>
+					</div>
+				    <div class="col-lg-6 col-md-12 col-12">
+						<label><input type="radio" class="radio-treatment" name="entry.1855726954" value=5><div>SkinBooster</div></label>
+						<label><input type="radio" class="radio-treatment" name="entry.1855726954" value=6><div>Acnes/Pores</div></label>
+						<label><input type="radio" class="radio-treatment" name="entry.1855726954" value=7><div>Facials(Skin Care)</div></label>
+						<label><input type="radio" class="radio-treatment" name="entry.1855726954" value=8><div>Body Slimming</div></label>
+						<label><input type="radio" class="radio-treatment" name="entry.1855726954" value=9><div>Others</div></label>
+			  	    </div>
+				  </div>
+				  <small id="treatment-error" class="text-danger"></small>
+				</div>
+			  </div>
+			  
+			  <div class="form-group flex-container">
+				<label for="time" class="col-md-4 col-12">Time<small class="text-danger">*</small></label>
+				  <div class="input-container space-container col-md-8 col-12">
+					<div class="input-container space-col datepicker-container col-md-6 col-12">
+					  <div id="clinic-time-date" class="col-md-11 col-12">
+					    <input placeholder="YYYY.MM.DD" type="text" id="time-date" class="form-control datepicker input-field" data-date-format="yyyy.mm.dd" readonly >
+					    <i class="glyphicon glyphicon-chevron-down icon"></i>
+						<small id="time-date-error" class="text-danger"></small>
+					  </div>
+					  
+					  <input type="hidden" id="time-year-input" name="entry.903552466_year">
+					  <input type="hidden" id="time-month-input" name="entry.903552466_month">
+					  <input type="hidden" id="time-day-input" name="entry.903552466_day">
+				    </div>
+					<div class="input-container flex-container bootstrap-timepicker timepicker-container col-md-6 col-12" id="time-hour-container">
+					  <div id="clinic-time-hour" class="col-md-11 col-12">
+						<input placeholder="--:-- PM" type="text" id="time-hour" class="form-control timepicker input-field" readonly >
+						<i class="glyphicon glyphicon-chevron-down icon"></i>
+						<small id="time-hour-error" class="text-danger"></small>
+					  </div>
+					  
+					  <input type="hidden" id="time-hour-input" name="entry.903552466_hour">
+					  <input type="hidden" id="time-minute-input" name="entry.903552466_minute">
+					  <input type="hidden" id="manager-input" name="entry.1368537488" value="User">
+					</div>
+				  </div>
+			  </div>
+			  
+			  <div class="form-group flex-container">
+				<label for="notes" class="col-md-4 col-12">Notes</label>
+				  <div class="input-container col-md-8 col-12">
+					<textarea rows="4" cols="50" class="form-control" id="notes" name="entry.418492288" placeholder="Your Answer"></textarea>
+					<small id="notes-error" class="text-danger"></small>
+				  </div>
+			  </div>
+			  
+		  </div>
+	  </div>
+    </div>
+  </div>
+ 
+
+  <div class="section flex-container">
+	<button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+  
+  <!-- Google Translate -->
+  <!-- <div id="google_translate_element" class="hide"></div>
+  <script type="text/javascript" src="https://eng.ppeum.com/wp-content/jivaka/202001141700/assets/scripts/translate.js"></script> -->
+</form>
+
+<!-- Intl Tel -->
+<script src="https://eng.ppeum.com/wp-content/jivaka/202001141700/assets/libs/intl-tel-input-16.0.0/build/js/intlTelInput.js"></script>
+<script src="https://eng.ppeum.com/wp-content/jivaka/202001141700/assets/scripts/intl-tel-impl.js"></script>
+
+</body>
+<html>
+

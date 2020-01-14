@@ -2,117 +2,131 @@ $(document).ready(function () {
 	var requiredErrorMessage = "This field is required";
 	var emailPatternInvalidErrorMessage = "Invalid email address. Valid e-mail can contain only latin letters, numbers, '@' and '.' (e.g: example@domain.com)";
 	var phoneNumberPatternInvalidErrorMessage = "Invalid phone number. Valid phone number contain only numbers (e.g: 01012345678)";
+	var clinicNotAvailableErrorMessage = "Clinic is closed. Please select another date!";
 	
 	var userFirstNameField = "#user-first-name";
 	var userLastNameField = "#user-last-name";
 	var userBirthdayField = "#user-birthday";
 	var userNationalityField = "#user-nationality";
-	var userLanguageField = "#user-language";
 	var userMessengerTypeField = "#user-messenger-type";
 	var userEmailAddressField = "#user-email-address";
 	var userPhoneNumberField = "#user-phone-number";
 	var clinicField = "#clinic";
 	var treatmentField = "#treatment";
 	var timeDateField = "#time-date";
-	var timeHourField = "#time-hour";
-	var notesField = "#notes";
-
+	var timeHourFiled = "#time-hour";
+	
+	var clinicInfoContainer = "#clinic-info-container";
+	
 	var clinicRadioName = "entry.896669018";
+	var treatmentRadioName = "entry.1855726954";
 	
 	var datepickerParams = { format: "yyyy.mm.dd", autoclose: true };
 	
-	var clinics = [
-	  {
-	    name: "Bioface",
-		hours: [
-		  { min: null, max: null },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 1700 },
-		]
-	  },
-	  {
-	    name: "Ppeum Myeongdong",
-		hours: [
-		  { min: 1030, max: 1700 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 1900 },
-		]
-	  },
-	  {
-	    name: "Ppeum Sinnonhyeon",
-		hours: [
-		  { min: 1100, max: 1700 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 1700 },
-		]
-	  },
-	  {
-	    name: "Ppeum Sinsa",
-		hours: [
-		  { min: 1030, max: 1700 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 1900 },
-		]
-	  },
-	  {
-	    name: "Ppeum Hongdae",
-		hours: [
-		  { min: 1030, max: 1700 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 1900 },
-		]
-	  },
-	  {
-	    name: "Junho Lee Dentistry",
-		hours: [
-		  { min: null, max: null },
-		  { min: 1000, max: 1900 },
-		  { min: 1000, max: 1900 },
-		  { min: 1000, max: 2100 },
-		  { min: 1000, max: 1900 },
-		  { min: 1000, max: 1900 },
-		  { min: 1030, max: 1500 },
-		]
-	  },
-	  {
-	    name: "Chang Clinic",
-		hours: [
-		  { min: null, max: null },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 1830 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 1830 },
-		  { min: 1030, max: 2100 },
-		  { min: 1030, max: 1530 },
-		]
-	  }
-	];
+    var clinics = [
+        {
+            name: "Ppeum Myeongdong",
+            address: "Ewha building 6, 7 floor<br>11 Myeongdong 8ga-gil, Jung-gu, Seoul<br>(66-27Chungmuro 2(i)-ga)",
+            supportLanguages: ["English", "Chinese", "Japanese"],
+            hours: [
+            { min: 1030, max: 1530 },
+            { min: 1030, max: 1930 },
+            { min: 1030, max: 1930 },
+            { min: 1030, max: 1930 },
+            { min: 1030, max: 1930 },
+            { min: 1030, max: 1930 },
+            { min: 1030, max: 1730 },
+            ],
+			lunch: [
+			{ min: 1300, max: 1330 },
+            { min: 1300, max: 1400 },
+            { min: 1300, max: 1400 },
+            { min: 1300, max: 1400 },
+            { min: 1300, max: 1400 },
+            { min: 1300, max: 1400 },
+            { min: 1300, max: 1400 },
+			]
+        },
+        {
+            name: "Ppeum Sinnonhyeon",
+            address: "808 Tower 13th, 14th floor<br>Gangnamdae-ro 470, Gangnam-gu, Seoul",
+            supportLanguages: ["Chinese", "Japanese"],
+            hours: [
+            { min: 1100, max: 1530 },
+            { min: 1030, max: 1930 },
+            { min: 1030, max: 1930 },
+            { min: 1030, max: 1930 },
+            { min: 1030, max: 1930 },
+            { min: 1030, max: 1930 },
+            { min: 1030, max: 1530 },
+            ],
+			lunch: [
+			{ min: 1300, max: 1400 },
+            { min: 1300, max: 1400 },
+            { min: 1300, max: 1400 },
+            { min: 1300, max: 1400 },
+            { min: 1300, max: 1400 },
+            { min: 1300, max: 1400 },
+            { min: 1300, max: 1400 },
+			]
+        },
+        {
+            name: "Ppeum Sinsa",
+            address: "131, Dosan-daero, Gangnam-gu, Seoul, Korea",
+            supportLanguages: ["Chinese", "Japanese"],
+            hours: [
+            { min: 1030, max: 1530 },
+            { min: 1030, max: 1930 },
+            { min: 1030, max: 1930 },
+            { min: 1030, max: 1930 },
+            { min: 1030, max: 1930 },
+            { min: 1030, max: 1930 },
+            { min: 1030, max: 1730 },
+            ],
+			lunch: [
+			{ min: 1300, max: 1400 },
+            { min: 1300, max: 1400 },
+            { min: 1300, max: 1400 },
+            { min: 1300, max: 1400 },
+            { min: 1300, max: 1400 },
+            { min: 1300, max: 1400 },
+            { min: 1300, max: 1400 },
+			]
+        },
+        {
+            name: "Ppeum Hongdae",
+            address: "140, Yanghwa-ro, Mapo-gu, Seoul,south Korea",
+            supportLanguages: [""],
+            hours: [
+            { min: 1030, max: 1530 },
+            { min: 1030, max: 1930 },
+            { min: 1030, max: 1930 },
+            { min: 1030, max: 1930 },
+            { min: 1030, max: 1930 },
+            { min: 1030, max: 1930 },
+            { min: 1030, max: 1730 },
+            ],
+			lunch: [
+			{ min: 1300, max: 1400 },
+            { min: 1300, max: 1400 },
+            { min: 1300, max: 1400 },
+            { min: 1300, max: 1400 },
+            { min: 1300, max: 1400 },
+            { min: 1300, max: 1400 },
+            { min: 1300, max: 1400 },
+			]
+        }
+    ];
+	
+	var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+	
+	var prevTime = 0000;
+	var minusHalfMinutes = 70;
 	
     $(userBirthdayField).datepicker(datepickerParams);
 	
 	$(timeDateField).datepicker(datepickerParams);
-	initTimepicker(timeHourField, 0000, 2400);
-	
+	initTimepicker(timeHourFiled, 0000, 2400, null, null);	
 	onUpdateEvent();
 	
 	$(userBirthdayField).change(function() {
@@ -124,15 +138,6 @@ $(document).ready(function () {
 	  $(userBirthdayField + "-day-input").val(date[2]);
 	});
 	
-	$(".btn-user-language").click(function() {
-      var text = $(this).attr("name");
-
-      $(userLanguageField + "-input").val(text);
-	  
-	  $(".btn-user-language").removeClass("choosed");
-	  $("img[name='" + text + "']").addClass("choosed");
-	});
-	
 	$(".btn-messenger-type").click(function() {
       var text = $(this).attr("name");
       $(userMessengerTypeField + "-input").val(text);
@@ -142,6 +147,7 @@ $(document).ready(function () {
 	});
 	
 	$(clinicField).change(function(){
+	  addClinicInfo();
 	  if ($(timeDateField).val().length > 0) {
 	    var val = $(timeDateField).val();
 	    var date = val.split(".");
@@ -163,7 +169,7 @@ $(document).ready(function () {
 	  reInitTimeField(date);
 	});
 	
-	$(timeHourField).change(function() {
+	$(timeHourFiled).change(function() {
       var val = $(this).val();
 	  
 	  var dayNight = val.split(" ");
@@ -181,13 +187,13 @@ $(document).ready(function () {
 	  $("#time-minute-input").val(time[1]);
 	});
 	
-	$('#booking-form').submit(function(event) {	 
+	$('#booking-form').submit(function(event) {
 	  if (!isFormValid()) {
 		event.preventDefault();  
 	  }
 	});
 	
-	function initTimepicker($field, $minTime, $maxTime) {
+	function initTimepicker($field, $minTime, $maxTime, $lunchStartTime, $lunchEndTime) {
       if ($minTime != null && $maxTime != null) {
 		addAndRemoveError(true, timeDateField, "");
 		$($field + "-container").removeClass("hidden");
@@ -203,21 +209,26 @@ $(document).ready(function () {
 		
 		  var temp = mer == "PM" && h < 12 ? (h+12) + "" + m : h + "" + m;
 		
-		  if ($maxTime != null && parseInt(temp) > $maxTime) {
-		    var validTime = $maxTime > 12000 ? parseInt($maxTime.toString().substr(0, $maxTime.toString().length - 2)) - 12 + ":" + $maxTime.toString().substr($maxTime.toString().length, 2) + " PM"
-		     : $maxTime.toString().substr(0, $maxTime.toString().length - 2) + ":" + $maxTime.toString().substr($maxTime.toString().length - 2, 2) + " AM"
+		  if (($lunchStartTime != null && parseInt(temp) >= $lunchStartTime) && ($lunchEndTime != null && parseInt(temp) < $lunchEndTime)) {
+			var isMinusTime = prevTime < parseInt(temp);
+		    prevTime = parseInt(temp);  
+
+			var validTime = isMinusTime ? convertTime($lunchStartTime - minusHalfMinutes) : convertTime($lunchEndTime);
+		 
+		    $($field).timepicker("setTime", validTime);
+		  } else if ($maxTime != null && parseInt(temp) > $maxTime) {
+		    var validTime = convertTime($maxTime);
 		 
 		    $($field).timepicker("setTime", validTime);
 	      } else if ($minTime != null && parseInt(temp) < $minTime) {
-		    var validTime = $minTime > 12000 ? parseInt($minTime.toString().substr(0, $minTime.toString().length - 2)) - 12 + ":" + $minTime.toString().substr($minTime.toString().length, 2) + " PM"
-		     : ($minTime.toString().substr(0, $minTime.toString().length - 2)) + ":" + ($minTime.toString().substr($minTime.toString().length - 2, 2)) + " AM"
+		    var validTime = convertTime($minTime);
 		 
 		    $($field).timepicker("setTime", validTime);
 	      }	
 	    });
 	  } else {
 		  resetTimeField();
-		  addAndRemoveError(false, timeDateField, "Clinic is Closed! Choose another date");
+		  addAndRemoveError(false, timeDateField, clinicNotAvailableErrorMessage);
 		  $($field + "-container").addClass("hidden");
 	  }
 	}
@@ -227,10 +238,12 @@ $(document).ready(function () {
       var day = newDate.getDay();
 
 	  if ($("input[name='" + clinicRadioName + "']:checked").val() != undefined) {
-		var selectedClinicHours = clinics.find(clinic => clinic.name === $("input[name='" + clinicRadioName + "']:checked").val()).hours;
+		var selectedClinic = clinics.find(clinic => clinic.name === $("input[name='" + clinicRadioName + "']:checked").val());
+		var selectedClinicHours = selectedClinic.hours;
+		var selectedClinicLunchHours = selectedClinic.lunch;
 
 		resetTimeField();
-		initTimepicker(timeHourField, selectedClinicHours[day].min, selectedClinicHours[day].max);  
+		initTimepicker(timeHourFiled, selectedClinicHours[day].min, selectedClinicHours[day].max, selectedClinicLunchHours[day].min, selectedClinicLunchHours[day].max);  
 	  }
 	}
 	
@@ -238,7 +251,7 @@ $(document).ready(function () {
 	  $("#time-hour-input").val("");
 	  $("#time-minute-input").val("");
 	  
-	  $(timeHourField).timepicker("setTime", "");
+	  $(timeHourFiled).timepicker("setTime", "");
 	}
 	
 	function onUpdateEvent() {
@@ -246,13 +259,12 @@ $(document).ready(function () {
 	  onKeyUpCheckRequired(userLastNameField);
 	  onChangeCheckRequired(userBirthdayField);
 	  onKeyUpCheckRequired(userNationalityField);
-	  onClickCheckRequired(userLanguageField);
 	  onChangeEmail();
 	  onChangePhoneNumber();
 	  onCheckedOptionCheckRequired("radio", clinicRadioName, clinicField);
-	  onKeyUpCheckRequired(treatmentField);
+	  onCheckedOptionCheckRequired("radio", treatmentRadioName, treatmentField);
 	  onChangeCheckRequired(timeDateField);
-	  onChangeCheckRequired(timeHourField);	  
+	  onChangeCheckRequired(timeHourFiled);	  
 	}
 	
 	function onChangeEmail() {
@@ -298,17 +310,17 @@ $(document).ready(function () {
 	function isFormValid() {
 	  var isValid = true;
 	  var errorField = "";
+	  
 	  if (!isRequiredFieldValid(userFirstNameField)) { errorField = setErrorField(isValid, userFirstNameField, errorField); isValid = false; }
 	  if (!isRequiredFieldValid(userLastNameField)) { errorField = setErrorField(isValid, userFirstNameField, errorField); isValid = false; }
 	  if (!isRequiredFieldValid(userBirthdayField)) { errorField = setErrorField(isValid, userBirthdayField, errorField); isValid = false; }
 	  if (!isRequiredFieldValid(userNationalityField)) { errorField = setErrorField(isValid, userNationalityField, errorField); isValid = false; }
-	  if (!isRequiredHiddenFieldValid(userLanguageField, "#user-language-input")) { errorField = setErrorField(isValid, userLanguageField, errorField); isValid = false; }
 	  if (!isRequiredFieldValid(userEmailAddressField) || !isEmailValid()) { errorField = setErrorField(isValid, userEmailAddressField, errorField); isValid = false; }
 	  if (!isRequiredFieldValid(userPhoneNumberField) || !isPhoneNumberValid()) { errorField = setErrorField(isValid, userPhoneNumberField, errorField); isValid = false; }
 	  if (!isRadioChecked(clinicRadioName, clinicField)) { errorField = setErrorField(isValid, clinicField, errorField);  isValid = false; }
-	  if (!isRequiredFieldValid(treatmentField)) { errorField = setErrorField(isValid, treatmentField, errorField); isValid = false; }
-	  if (!isRequiredFieldValid(timeDateField) || !isClinicAvailable()) { errorField = setErrorField(isValid, timeDateField, errorField); isValid = false; }
-	  if (!isRequiredFieldValid(timeHourField)) { errorField = setErrorField(isValid, timeDateField, errorField); isValid = false; }
+	  if (!isRadioChecked(treatmentRadioName, treatmentField)) { errorField = setErrorField(isValid, treatmentField, errorField);  isValid = false; }
+	  if (!isClinicAvailable()) { errorField = setErrorField(isValid, timeDateField, errorField); isValid = false; }
+	  if (!isRequiredFieldValid(timeHourFiled)) { errorField = setErrorField(isValid, timeDateField, errorField); isValid = false; }
 	  
 	  if (!isValid) {
 	    $('html, body').animate({ scrollTop: $(errorField).offset().top - 25 }, 0);
@@ -322,24 +334,26 @@ $(document).ready(function () {
 	}
 	
 	function isClinicAvailable() {
-	  addAndRemoveError(isClinicValid(), timeDateField, "Clinic is closed. Please select another date!");
+	  addAndRemoveError(isClinicValid(), timeDateField, clinicNotAvailableErrorMessage);
 	  
 	  return isClinicValid();
 	}
 	
 	function isClinicValid() {
   	  var val = $(timeDateField).val();
-	  var date = val.split(".");
-	  var newDate = new Date(date[0] + "-" + date[1] + "-" + date[2] + "T10:00:00Z");
-      var day = newDate.getDay();
+	  
+	  if (val) {
+		var date = val.split(".");
+	    var newDate = new Date(date[0] + "-" + date[1] + "-" + date[2] + "T10:00:00Z");
+        var day = newDate.getDay();
 
-	  if ($("input[name='" + clinicRadioName + "']:checked").val() != undefined) {
-		var selectedClinicHours = clinics.find(clinic => clinic.name === $("input[name='" + clinicRadioName + "']:checked").val()).hours;
-
-		return selectedClinicHours[day].min != null && selectedClinicHours[day].max != null;
+	    if ($("input[name='" + clinicRadioName + "']:checked").val() != undefined) {
+		  var selectedClinicHours = clinics.find(clinic => clinic.name === $("input[name='" + clinicRadioName + "']:checked").val()).hours;
+		  return selectedClinicHours[day].min != null && selectedClinicHours[day].max != null;
+	    }  
 	  }
 	  
-	  return false;
+	  return isRequiredFieldValid(timeDateField);
 	}
 	
 	function isRadioChecked($radioName, $inputField) {
@@ -393,6 +407,53 @@ $(document).ready(function () {
 	  } else {
 		  $($inputField).addClass("is-invalid");
 		  $($inputField + "-error").text($errorMessage);
-	  }	  
+	  }
+	}
+	
+	function addClinicInfo() {
+	  if ($("input[name='" + clinicRadioName + "']:checked").val() != undefined) {
+		$(clinicInfoContainer).removeClass("hidden");
+
+		var selectedClinic = clinics.find(clinic => clinic.name === $("input[name='" + clinicRadioName + "']:checked").val());
+		var clinicAddress = selectedClinic.address;
+		var clinicHours = selectedClinic.hours;
+		var clinicSupportLanguages = selectedClinic.supportLanguages;
+		
+		var businessHoursTemplate = "";
+		var supportLanguagesTemplate = "";
+		
+		for (var idx = 0; idx < clinicHours.length; idx++) {
+		  var minHours = clinicHours[idx].min;
+		  var maxHours = clinicHours[idx].max;
+		  
+		  var formattedMinHours = minHours != null ? convertTime(minHours) : null;
+		  var formattedMaxHours = maxHours != null ? convertTime(maxHours) : null;
+		  
+		  var isClosed = formattedMinHours == null || formattedMaxHours == null;
+		  var openHours = isClosed ? "Closed" : formattedMinHours + " - " + formattedMaxHours;
+		  var hoursClass = isClosed ? "col-7 text-danger" : "col-7";
+			
+		  businessHoursTemplate += "<span class='col-5'>" + days[idx] + ": </span><span class='notranslate " + hoursClass + "'>" + openHours + "</span><br>";
+		}
+		
+		for (var idx = 0; idx < clinicSupportLanguages.length; idx++) {		  
+		  if (idx > 0) {
+		    supportLanguagesTemplate += ", "
+		  }
+		  
+		  supportLanguagesTemplate += clinicSupportLanguages[idx];
+		}
+
+		$("#clinic-info__address").html(clinicAddress);
+		$("#clinic-info__business-hours").html(businessHoursTemplate);
+		$("#clinic-info__support-languages").html(supportLanguagesTemplate);
+	  } else {
+		$(clinicInfoContainer).addClassClass("hidden");
+	  }
+	}
+	
+	function convertTime($time) {
+	  return $time > 1200 ? (parseInt($time.toString().substr(0, $time.toString().length - 2)) - 12 + ":" + $time.toString().substr($time.toString().length - 2, 2) + " PM")
+		     : (($time.toString().substr(0, $time.toString().length - 2)) + ":" + ($time.toString().substr($time.toString().length - 2, 2)) + " AM");
 	}
 });
