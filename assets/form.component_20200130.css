@@ -1,7 +1,6 @@
 :root {
   --blue-color: #498fe1;
   --light-purple: #bca6c7;
-  --dark-purple: #575686;
   --dark-blue-color: #060e3d;
   --gray-color: #808080;
   --light-blue-color: #ecf3fc;
@@ -197,7 +196,7 @@ div.is-invalid {
   box-shadow: 1px 1px 1px 1px var(--light-gray-color);
   
   background: var(--light-blue-color) !important;
-  border: 1px solid var(--light-purple) !important;
+  border: 1px solid var(--blue-color) !important;
 }
 
 .btn-img {

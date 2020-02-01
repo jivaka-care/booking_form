@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://www.jivaka.care/booking/assets/libs/jquery-3.4.1.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="https://www.jivaka.care/booking/assets/libs/bootstrap-4.4.1/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://www.jivaka.care/booking/assets/libs/bootstrap-4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://www.jivaka.care/booking/assets/libs/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://www.jivaka.care/booking/form.component_20200130.css">
+    <script type="text/javascript" src="https://www.jivaka.care/booking/form.component_20200203.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <iframe style="display: none;" name="dummyframe" id="dummyframe"></iframe>
+    <div id="coupon-form" style="display: none;">
+        <form id="booking-form" action="https://docs.google.com/forms/d/e/1FAIpQLSeIk8P4pi9lv2j4Ost9Sq90L9FcaY2PWC_neSCcKVUSUuSA2A/formResponse" target="dummyframe" method="POST">
+            <div class="section flex-container">
+                <div class="form-body col-md-9 col-12">
+                    <div class="form-content-header flex-container">
+                        <div class="col-md-10 col-12">
+                            <small class="text-danger">[ Required ]</small>
+                        </div>
+                    </div>
+    
+                    <div class="form-content flex-container">
+                        <div class="col-md-10 col-12">
+                            <div class="form-group flex-container">
+                                <label for="user-name" class="col-md-4 col-12">Full Name<small class="text-danger">*</small></label>
+                                <div class="input-container col-md-8 col-12">
+                                    <input type="text" class="form-control" id="user-name" name="entry.1667398293" placeholder="Name">
+                                    <small id="user-name-error" class="text-danger"></small>
+                                </div>
+                            </div>
+    
+                            <div class="form-group flex-container">
+                                <label for="user-email-address" class="col-md-4 col-12">Email Address<small class="text-danger">*</small></label>
+                                <div class="input-container col-md-8 col-12">
+                                    <input type="text" class="form-control" id="user-email-address" name="entry.521055117" placeholder="username@email.com">
+                                    <small id="user-email-address-error" class="text-danger"></small>
+                                </div>
+                            </div>
+    
+                            <div class="form-group flex-container">
+                                <label for="user-first-name" class="col-md-4 col-12">Messenger ID<small class="text-danger">*</small></label>
+                                <div class="input-container space-container col-md-8 col-12">
+                                    <div class="space-col col-md-6 col-12">
+                                        <div class="col-md-11 col-12">
+                                            <select class="form-control col-12" id="user-messenger-type" style="height:60px" name="entry.509756699">
+                                                <option value="WeChat">WeChat</option>
+                                                <option value="WhatsApp">WhatsApp</option>
+                                                <option value="Instagram">Instagram</option>
+                                                <option value="Line">Line</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div id="last-name-container" class="col-md-6 col-12 flex-container">
+                                        <div class="col-md-11 col-12">
+                                            <input type="text" class="form-control col-12" id="user-messenger-id" name="entry.712395037" placeholder="Messenger Id">
+                                            <small id="user-messenger-id-error" class="text-danger"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="form-group flex-container">
+                                <label for="notes" class="col-md-4 col-12">Notes/Request</label>
+                                <div class="input-container col-md-8 col-12">
+                                    <textarea rows="4" cols="50" class="form-control" id="notes" name="entry.424803666" placeholder="Notes"></textarea>
+                                    <small id="notes-error" class="text-danger"></small>
+                                </div>
+                            </div>
+                            <input type="hidden" name="isCoupon" value=1>
+                            <input type="hidden" name="entry.519299938" value="{{ product.title }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="section flex-container">
+            <button type="submit" class="btn btn-primary" form="booking-form" value="Submit">Submit</button>
+        </div>
+    </div>
+    
+</body>
+
+</html>
